@@ -4,6 +4,7 @@ import FeaturesGrid from "./components/features-grid";
 import LatestNews from "./components/latest-news";
 import InstagramGrid from "./components/instagram-grid";
 import NewsletterForm from "./components/newsletter-form";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <LatestNews />
       <InstagramGrid />
       <NewsletterForm />
+      <Footer />
     </main>
   );
 }

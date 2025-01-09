@@ -43,7 +43,7 @@ export default function AcademicsPage() {
                 {/* Image (replace with your own) */}
                 <div className="mb-4">
                   <Image
-                    src="https://placehold.co/600x400?text=Social+Studies"
+                    src="/images/academic1.png"
                     alt="Social Studies"
                     width={600}
                     height={400}
@@ -66,7 +66,7 @@ export default function AcademicsPage() {
               <CardContent>
                 <div className="mb-4">
                   <Image
-                    src="https://placehold.co/600x400?text=Science"
+                    src="/images/academic2.png"
                     alt="Science"
                     width={600}
                     height={400}
@@ -88,7 +88,7 @@ export default function AcademicsPage() {
               <CardContent>
                 <div className="mb-4">
                   <Image
-                    src="https://placehold.co/600x400?text=Math"
+                    src="/images/academic3.png"
                     alt="Math"
                     width={600}
                     height={400}
@@ -115,7 +115,7 @@ export default function AcademicsPage() {
               <CardContent>
                 <div className="mb-4">
                   <Image
-                    src="https://placehold.co/600x400?text=Health"
+                    src="/images/academic4.png"
                     alt="Health"
                     width={600}
                     height={400}
@@ -137,7 +137,7 @@ export default function AcademicsPage() {
               <CardContent>
                 <div className="mb-4">
                   <Image
-                    src="https://placehold.co/600x400?text=Literature+Arts"
+                    src="/images/academic4.png"
                     alt="Literature Arts"
                     width={600}
                     height={400}
@@ -164,7 +164,7 @@ export default function AcademicsPage() {
               <CardContent>
                 <div className="mb-4">
                   <Image
-                    src="https://placehold.co/600x400?text=Art"
+                    src="/images/academic5.png"
                     alt="Art"
                     width={600}
                     height={400}
@@ -186,7 +186,7 @@ export default function AcademicsPage() {
               <CardContent>
                 <div className="mb-4">
                   <Image
-                    src="https://placehold.co/600x400?text=Physical+Education"
+                    src="/images/academic6.png"
                     alt="Physical Education"
                     width={600}
                     height={400}

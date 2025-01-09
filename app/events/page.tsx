@@ -31,8 +31,8 @@ const events = [
 
 export default function SchoolEvents() {
   return (
-    <section className="bg-white py-20">
-      <div className="container mx-auto px-4">
+    <section className="bg-[#1C1F2E] py-20">
+      <div className="container bg-white mx-auto px-44">
         <h2 className="mb-12 text-center text-4xl font-bold text-[#1C1F2E]">
           SCHOOLS EVENTS
         </h2>

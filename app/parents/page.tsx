@@ -1,5 +1,5 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export default function ForParents() {
   return (
@@ -10,7 +10,9 @@ export default function ForParents() {
             FOR THE PARENTS
           </h2>
           <p className="mx-auto max-w-2xl text-gray-600">
-            I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font.
+            I'm a paragraph. Click here to add your own text and edit me. It's
+            easy. Just click "Edit Text" or double click me to add your own
+            content and make changes to the font.
           </p>
         </div>
 
@@ -24,7 +26,8 @@ export default function ForParents() {
               <div className="space-y-4">
                 {[...Array(6)].map((_, i) => (
                   <p key={i} className="text-sm leading-relaxed text-white/90">
-                    I'm a paragraph. Click here to add your own text and edit me.
+                    I'm a paragraph. Click here to add your own text and edit
+                    me.
                   </p>
                 ))}
               </div>
@@ -34,20 +37,24 @@ export default function ForParents() {
           {/* Parent Meeting Image */}
           <div className="relative h-[400px]">
             <Image
-              src="/placeholder.svg?height=400&width=600"
+              src="/images/parent1.png"
               alt="Parent teacher meeting"
-              fill
-              className="object-cover"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="top center"
+              className="rounded-md"
             />
           </div>
 
           {/* School Supplies Image */}
           <div className="relative h-[400px]">
             <Image
-              src="/placeholder.svg?height=400&width=600"
+              src="/images/parent2.png"
               alt="School supplies shopping"
-              fill
-              className="object-cover"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="top"
+              className="rounded-md"
             />
           </div>
 
@@ -60,13 +67,12 @@ export default function ForParents() {
               <div className="mb-8 space-y-4">
                 {[...Array(5)].map((_, i) => (
                   <p key={i} className="text-sm leading-relaxed text-gray-600">
-                    I'm a paragraph. Click here to add your own text and edit me.
+                    I'm a paragraph. Click here to add your own text and edit
+                    me.
                   </p>
                 ))}
               </div>
-              <Button
-                className="bg-[#6366F1] hover:bg-[#5558DD]"
-              >
+              <Button className="bg-[#6366F1] hover:bg-[#5558DD]">
                 Download Supply List
               </Button>
             </div>
@@ -74,6 +80,5 @@ export default function ForParents() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

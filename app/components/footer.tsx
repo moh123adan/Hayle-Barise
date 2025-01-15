@@ -11,15 +11,17 @@ export default function Footer() {
           <div className="flex items-start">
             <div className="flex items-center space-x-2">
               <Image
-                src="/images/logo.png"
+                src="/images/main-logo.png"
                 alt="Ridgeview Logo"
                 width={50}
                 height={50}
-                className="w-12 h-12"
+                className="w-44 h-24"
               />
               <div className="flex flex-col">
-                <span className="font-bold text-lg">Ridgeview</span>
-                <span className="text-sm text-gray-300">Middle School</span>
+                <span className="font-bold text-lg">HAYLE BARISE</span>
+                <span className="text-sm text-gray-300">
+                  TECHNICAL DEVELOPMENT CENTER
+                </span>
               </div>
             </div>
           </div>

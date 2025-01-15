@@ -37,7 +37,7 @@ export function Navbar() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-[300px] bg-white p-0">
-              <div className="flex h-20 items-center border-b px-6">
+              <div className="flex h-20  items-center border-b px-6">
                 <Logo />
               </div>
               <nav className="px-2 py-4">

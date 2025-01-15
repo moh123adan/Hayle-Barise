@@ -30,7 +30,7 @@ export default function FeaturesGrid() {
           asChild
           className="bg-[#6366F1] px-8 py-6 text-sm font-medium hover:bg-[#5558DD]"
         >
-          <Link href="/students">Student Information</Link>
+          <Link href="/student-life">Student Information</Link>
         </Button>
       </div>
 

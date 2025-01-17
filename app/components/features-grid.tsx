@@ -19,12 +19,13 @@ export default function FeaturesGrid() {
       {/* Top Right Content */}
       <div className="flex flex-col items-center justify-center bg-[#1C1F2E] p-12 text-center">
         <h2 className="mb-4 text-3xl font-semibold text-[#3bb995]">
-          Student Life
+          Hands-On Learning
         </h2>
         <p className="mb-8 max-w-md text-sm leading-relaxed text-gray-300">
-          I'm a paragraph. Click here to add your own text and edit me. It's
-          easy. Just click "Edit Text" or double click me to add your own
-          content and make changes to the font.
+          At Hayle Barise, we believe in learning by doing. Our state-of-the-art
+          labs and workshops provide students with practical, hands-on
+          experience in their chosen fields. From coding to engineering, you'll
+          be working with the latest tools and technologies used in industry.
         </p>
         <Button
           asChild
@@ -37,12 +38,14 @@ export default function FeaturesGrid() {
       {/* Bottom Left Content */}
       <div className="flex flex-col items-center justify-center bg-[#1C1F2E] p-12 text-center">
         <h2 className="mb-4 text-3xl font-semibold text-[#3bb995]">
-          Open Enrollment
+          Career-Focused Programs
         </h2>
         <p className="mb-8 max-w-md text-sm leading-relaxed text-gray-300">
-          I'm a paragraph. Click here to add your own text and edit me. It's
-          easy. Just click "Edit Text" or double click me to add your own
-          content and make changes to the font.
+          Our programs are designed with your future in mind. We offer a wide
+          range of technical courses that align with industry demands, ensuring
+          you're well-prepared for the job market. From software development to
+          mechanical engineering, find the program that matches your career
+          goals.
         </p>
         <Button
           asChild

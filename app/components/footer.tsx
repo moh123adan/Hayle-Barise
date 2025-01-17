@@ -3,14 +3,14 @@ import Link from "next/link";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 export default function Footer() {
   return (
-    <footer className="bg-[#1a1b41] text-white">
+    <footer className="bg-[#4c75ae] text-white">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo Section */}
           <div className="flex items-start">
             <div className="flex items-center space-x-2">
               <Image
-                src="/images/main-logo.png"
+                src="/images/heyla-logo-1.png"
                 alt="Ridgeview Logo"
                 width={50}
                 height={50}

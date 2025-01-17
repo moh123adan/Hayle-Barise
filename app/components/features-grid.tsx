@@ -8,7 +8,7 @@ export default function FeaturesGrid() {
       {/* Top Left Image */}
       <div className="relative h-[400px]">
         <Image
-          src="/images/student-lab.png"
+          src="/images/heyle3.png"
           alt="Students discussing in classroom"
           fill
           className="object-cover"
@@ -55,7 +55,7 @@ export default function FeaturesGrid() {
       {/* Bottom Right Image */}
       <div className="relative h-[400px]">
         <Image
-          src="/images/student-lab2.png"
+          src="/images/heyle1.png"
           alt="Students studying together"
           fill
           className="object-cover"

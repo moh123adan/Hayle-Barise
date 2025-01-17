@@ -89,7 +89,7 @@ export function Navbar() {
       </div>
 
       {/* Desktop Navigation */}
-      <nav className="hidden bg-[#1C1F2E] lg:block">
+      <nav className="hidden bg-[#3bb995] lg:block">
         <div className="container mx-auto px-4">
           <div className="flex justify-center">
             {navigation.map((item) => (

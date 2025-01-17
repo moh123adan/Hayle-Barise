@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button";
 import { useImageSlider, ImageSlide } from "../hooks/useImageSlider";
 
 const images: ImageSlide[] = [
-  { src: "/images/student.png", alt: "Students at school" },
-  { src: "/images/classroom.png", alt: "Classroom" },
-  { src: "/images/library.png", alt: "School library" },
-  { src: "/images/playground.png", alt: "School playground" },
+  { src: "/images/heyle1.png", alt: "Students at school" },
+  { src: "/images/heyle2.png", alt: "Classroom" },
+  { src: "/images/heyle3.png", alt: "School library" },
+  { src: "/images/heyle4.png", alt: "School playground" },
 ];
 
 export default function Hero() {
@@ -24,7 +24,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.2 }}
           className="absolute inset-0"
         >
           <Image
@@ -44,15 +44,17 @@ export default function Hero() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative top-1/2 -translate-y-1/2 space-y-6 rounded-lg bg-[#6366F1] p-12 md:max-w-xl"
+            className="relative top-1/2 -translate-y-1/2 space-y-6 rounded-lg bg-[#4c75ae] p-12 md:max-w-xl"
           >
-            <h1 className="text-5xl font-bold text-white">Back to School</h1>
+            <h1 className="text-5xl font-bold text-white">
+              Welcome to Hayle Barise
+            </h1>
             <p className="text-2xl text-white">
-              Welcome to all of our students
+              Empowering innovation through cutting-edge technology education
             </p>
             <Button
               variant="secondary"
-              className="bg-[#1C1F2E] text-white hover:bg-[#2D3142]"
+              className="bg-[#3bb995] text-white hover:bg-[#2c997a]"
             >
               Discover the School
             </Button>

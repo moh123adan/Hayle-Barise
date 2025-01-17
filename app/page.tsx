@@ -4,7 +4,7 @@ import NewsletterForm from "./components/newsletter-form";
 import Footer from "./components/footer";
 import EngineeringPrograms from "./components/engineering-programs";
 import IndustryStandards from "./components/industry-standards";
-import TechHighlights from "./components/tech-highlits";
+import EngineeringHighlights from "./components/tech-highlits";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <IndustryStandards />
       <FeaturesGrid /> 
-      <TechHighlights />
+      <EngineeringHighlights />
       <EngineeringPrograms />
       <NewsletterForm />
       <Footer />

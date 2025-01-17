@@ -4,21 +4,21 @@ import Link from "next/link";
 const engineeringPrograms = [
   {
     title: "Civil Engineering",
-    duration: "4 years",
+    duration: "2 years",
     description:
       "Design and oversee construction of infrastructure projects like buildings, roads, and bridges.",
     image: "/images/civil.png",
   },
   {
     title: "Electrical Engineering",
-    duration: "4 years",
+    duration: "2 years",
     description:
       "Study and apply electricity, electronics, and electromagnetism to create innovative technologies.",
     image: "/images/electrical.png",
   },
   {
     title: "Mechanical Engineering",
-    duration: "4 years",
+    duration: "2 years",
     description:
       "Design, manufacture, and maintain mechanical systems and machines.",
     image: "/images/mechanical.png",

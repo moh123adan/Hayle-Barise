@@ -1,44 +1,44 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Award, Users, Lightbulb } from "lucide-react";
+import { Award, Users, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const techHighlights = [
+const engineeringHighlights = [
   {
     date: "Jun 15, 2024",
-    category: "Student Achievement",
+    category: "Electrical Engineering",
     image: "/images/heyle5.png",
-    title: "Student Team Wins National Robotics Competition",
+    title: "Students Develop Innovative Solar Power System",
     impact: 500,
     teamSize: 5,
   },
   {
     date: "Jun 10, 2024",
-    category: "Industry Partnership",
+    category: "Civil Engineering",
     image: "/images/heyle6.png",
-    title: "New Collaboration with Tech Giant for AI Research",
+    title: "Sustainable Bridge Design Wins National Competition",
     impact: 1000,
-    teamSize: 15,
+    teamSize: 8,
   },
   {
     date: "Jun 5, 2024",
-    category: "Innovation",
+    category: "Mechanical Engineering",
     image: "/images/heyle7.png",
-    title: "Launch of Advanced IoT Innovation Lab",
+    title: "New Energy-Efficient Engine Prototype Unveiled",
     impact: 300,
-    teamSize: 8,
+    teamSize: 6,
   },
 ];
 
-export default function TechHighlights() {
+export default function EngineeringHighlights() {
   return (
     <section className="bg-white py-20">
       <div className="container mx-auto px-4">
         <h2 className="mb-12 text-center text-4xl font-bold tracking-tight text-[#1C1F2E]">
-          TECH HIGHLIGHTS
+          ENGINEERING HIGHLIGHTS
         </h2>
         <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {techHighlights.map((item, index) => (
+          {engineeringHighlights.map((item, index) => (
             <div
               key={index}
               className="group relative overflow-hidden rounded-lg shadow-lg"
@@ -81,7 +81,7 @@ export default function TechHighlights() {
             asChild
             className="bg-[#3bb995] px-8 py-6 text-white hover:bg-[#268167]"
           >
-            <Link href="/tech-highlights">Explore All Highlights</Link>
+            <Link href="/engineering-highlights">Explore All Highlights</Link>
           </Button>
         </div>
       </div>

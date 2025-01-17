@@ -21,19 +21,19 @@ const images = [
 
 export default function InstagramGrid() {
   return (
-    <section className="bg-[#6366F1] py-8">
+    <section className="bg-[#4c75ae] py-8">
       <div className="container mx-auto px-4">
         <div className="mb-6 text-center text-white">
           <h2 className="mb-2 text-3xl font-bold">LIFE & CULTURE</h2>
           <p className="text-lg">
             Follow{" "}
             <Link
-              href="https://instagram.com/ridgeviewmiddleschool"
+              href="https://www.facebook.com/haylebarise1/photos"
               className="hover:underline"
             >
-              #ridgeviewmiddleschool
+              #haylebaris
             </Link>{" "}
-            on Instagram
+            on Facebook
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4">

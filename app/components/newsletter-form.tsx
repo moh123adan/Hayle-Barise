@@ -18,7 +18,7 @@ export default function NewsletterForm() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
       <div className="text-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[#1a1b41] mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[#4c75ae] mb-4">
           SIGN UP FOR SCHOOL NEWS
         </h1>
         <p className="text-lg text-gray-600">
@@ -56,7 +56,7 @@ export default function NewsletterForm() {
         <div className="flex justify-end">
           <Button
             type="submit"
-            className="bg-[#1a1b41] hover:bg-[#2a2b51] text-white px-8 py-2"
+            className="bg-[#3bb995] hover:bg-[#2b8e72] text-white px-8 py-2"
           >
             Subscribe
           </Button>

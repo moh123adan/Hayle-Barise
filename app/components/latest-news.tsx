@@ -74,7 +74,7 @@ export default function LatestNews() {
         <div className="text-center">
           <Button
             asChild
-            className="bg-[#6366F1] px-8 py-6 text-white hover:bg-[#5558DD]"
+            className="bg-[#3bb995] px-8 py-6 text-white hover:bg-[#268167]"
           >
             <Link href="/news">Read All News</Link>
           </Button>

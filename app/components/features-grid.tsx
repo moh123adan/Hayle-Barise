@@ -18,7 +18,7 @@ export default function FeaturesGrid() {
 
       {/* Top Right Content */}
       <div className="flex flex-col items-center justify-center bg-[#1C1F2E] p-12 text-center">
-        <h2 className="mb-4 text-3xl font-semibold text-[#6366F1]">
+        <h2 className="mb-4 text-3xl font-semibold text-[#3bb995]">
           Student Life
         </h2>
         <p className="mb-8 max-w-md text-sm leading-relaxed text-gray-300">
@@ -28,7 +28,7 @@ export default function FeaturesGrid() {
         </p>
         <Button
           asChild
-          className="bg-[#6366F1] px-8 py-6 text-sm font-medium hover:bg-[#5558DD]"
+          className="bg-[#3bb995] px-8 py-6 text-sm font-medium hover:bg-[#22785f]"
         >
           <Link href="/student-life">Student Information</Link>
         </Button>
@@ -36,7 +36,7 @@ export default function FeaturesGrid() {
 
       {/* Bottom Left Content */}
       <div className="flex flex-col items-center justify-center bg-[#1C1F2E] p-12 text-center">
-        <h2 className="mb-4 text-3xl font-semibold text-[#6366F1]">
+        <h2 className="mb-4 text-3xl font-semibold text-[#3bb995]">
           Open Enrollment
         </h2>
         <p className="mb-8 max-w-md text-sm leading-relaxed text-gray-300">
@@ -46,7 +46,7 @@ export default function FeaturesGrid() {
         </p>
         <Button
           asChild
-          className="bg-[#6366F1] px-8 py-6 text-sm font-medium hover:bg-[#5558DD]"
+          className="bg-[#3bb995] px-8 py-6 text-sm font-medium hover:bg-[#216f59]"
         >
           <Link href="/apply">Apply Today</Link>
         </Button>

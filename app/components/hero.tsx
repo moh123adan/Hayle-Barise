@@ -50,7 +50,7 @@ export default function Hero() {
               Welcome to Hayle Barise
             </h1>
             <p className="text-2xl text-white">
-              Empowering innovation through cutting-edge technology education
+              Empowering minds, shaping futures
             </p>
             <Button
               variant="secondary"

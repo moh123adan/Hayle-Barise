@@ -12,7 +12,7 @@ export default function SafetyMeasures() {
           We do everything to ensure the health, safety and well-being of our
           students and employees. Additional information can be found here
         </p>
-        <Button asChild className="bg-[#6366F1] px-8 hover:bg-[#5558DD]">
+        <Button asChild className="bg-[#3bb995] px-8 hover:bg-[#28886d]">
           <Link href="/safety">Safety Measures</Link>
         </Button>
       </div>

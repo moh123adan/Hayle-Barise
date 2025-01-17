@@ -1,22 +1,51 @@
+"use client";
+
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useImageSlider, ImageSlide } from "../hooks/useImageSlider";
+
+const images: ImageSlide[] = [
+  { src: "/images/student.png", alt: "Students at school" },
+  { src: "/images/classroom.png", alt: "Classroom" },
+  { src: "/images/library.png", alt: "School library" },
+  { src: "/images/playground.png", alt: "School playground" },
+];
 
 export default function Hero() {
+  const currentIndex = useImageSlider(images);
+
   return (
     <div className="relative h-[600px] w-full overflow-hidden">
-      {/* Background Image */}
-      <Image
-        src="/images/student.png"
-        alt="Students at school"
-        fill
-        className="object-cover"
-        priority
-      />
+      {/* Image Slider */}
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={images[currentIndex].src || "/placeholder.svg"}
+            alt={images[currentIndex].alt}
+            fill
+            className="object-cover"
+            priority
+          />
+        </motion.div>
+      </AnimatePresence>
 
       {/* Content Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent">
         <div className="container mx-auto h-full px-4">
-          <div className="relative top-1/2 -translate-y-1/2 space-y-6 rounded-lg bg-[#6366F1] p-12 md:max-w-xl">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative top-1/2 -translate-y-1/2 space-y-6 rounded-lg bg-[#6366F1] p-12 md:max-w-xl"
+          >
             <h1 className="text-5xl font-bold text-white">Back to School</h1>
             <p className="text-2xl text-white">
               Welcome to all of our students
@@ -27,7 +56,7 @@ export default function Hero() {
             >
               Discover the School
             </Button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

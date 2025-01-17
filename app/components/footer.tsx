@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
-
 export default function Footer() {
   return (
     <footer className="bg-[#1a1b41] text-white">

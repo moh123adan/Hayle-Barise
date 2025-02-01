@@ -28,5 +28,32 @@ export const courses: Course[] = [
         studyMode: "Diploma",
         weeklyStudy: "25 hours",
     },
+    {
+        id: 4,
+        title: "Xcd",
+        image: "/images/xcd.png",
+        startDate: "2025-02-20",
+        duration: "cdav",
+        studyMode: "vdsv",
+        weeklyStudy: "advdv",
+    },
+    {
+        id: 5,
+        title: "Machanical Engineering",
+        image: "/images/machanical.png",
+        startDate: "2024-03-01",
+        duration: "12 months",
+        studyMode: "Diploma",
+        weeklyStudy: "2 hours",
+    },
+    {
+        id: 6,
+        title: "Mason, Stone-Setting & Tiling",
+        image: "/images/mason.png",
+        startDate: "2024-05-01",
+        duration: "2 Years",
+        studyMode: "Diploma",
+        weeklyStudy: "25 hours",
+    },
 ]
 

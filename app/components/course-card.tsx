@@ -1,4 +1,4 @@
-import type { Course } from "@/types/course";
+import type { Course } from "../types/course";
 import { CalendarDays, Clock, GraduationCap, Timer } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";

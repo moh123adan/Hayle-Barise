@@ -6,6 +6,12 @@ export interface Course {
     duration: string
     studyMode: string
     weeklyStudy: string
-  }
-  
-  
+    author: {
+        name: string
+        image: string
+    }
+    modules: string[]
+    summary: string
+    requirements: string
+}
+

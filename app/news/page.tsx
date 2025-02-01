@@ -1,78 +1,71 @@
-"use client";
-
-import Link from "next/link";
 import {
-  Book,
-  Lightbulb,
   Users,
-  Shield,
-  Cpu,
-  GraduationCap,
-  Calendar,
-  Clock,
   Eye,
   MessageSquare,
-  ChevronRight,
+  Zap,
+  Building,
+  PenToolIcon as Tool,
+  Award,
+  Briefcase,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const posts = [
   {
     id: 1,
-    title: "Innovative Learning at Hayle Barise",
+    title: "Innovative Learning in Electrical Engineering",
     excerpt:
-      "Discover how our cutting-edge technical programs are shaping the future of education and empowering students with real-world skills.",
-    icon: Lightbulb,
+      "Discover how our cutting-edge Electrical Engineering program is shaping the future of energy systems and empowering students with real-world skills.",
+    icon: Zap,
     date: "Apr 25, 2024",
     readTime: "2 min read",
     stats: { views: 12, comments: 3 },
   },
   {
     id: 2,
-    title: "Meet Our Expert Faculty",
+    title: "Civil Engineering Projects Showcase",
     excerpt:
-      "Get to know the talented instructors behind Hayle Barise's success and their dedication to student growth and innovation.",
-    icon: Users,
+      "Explore the latest civil engineering projects our students have been working on, from sustainable infrastructure to urban planning innovations.",
+    icon: Building,
     date: "Apr 24, 2024",
     readTime: "3 min read",
     stats: { views: 8, comments: 2 },
   },
   {
     id: 3,
-    title: "New Safety Protocols for Hands-On Training",
+    title: "Mechanical Engineering Lab Updates",
     excerpt:
-      "Learn about the updated safety measures in place to ensure a secure and productive learning environment for all students.",
-    icon: Shield,
+      "Learn about our newly upgraded Mechanical Engineering labs and the cutting-edge equipment available for hands-on learning experiences.",
+    icon: Tool,
     date: "Apr 23, 2024",
     readTime: "2 min read",
     stats: { views: 15, comments: 5 },
   },
   {
     id: 4,
-    title: "Student Achievements Spotlight",
+    title: "Student Achievements in Engineering",
     excerpt:
-      "Celebrating the outstanding accomplishments of our students in technical innovation and community projects.",
-    icon: GraduationCap,
+      "Celebrating the outstanding accomplishments of our Electrical, Civil, and Mechanical Engineering students in recent competitions and projects.",
+    icon: Award,
     date: "Apr 22, 2024",
     readTime: "4 min read",
     stats: { views: 20, comments: 7 },
   },
   {
     id: 5,
-    title: "Registration Open for Technical Workshops",
+    title: "Industry Partnerships for Engineering Programs",
     excerpt:
-      "Join our upcoming workshops on robotics, AI, and cloud computing to enhance your technical skills and career prospects.",
-    icon: Cpu,
+      "Discover how our partnerships with leading engineering firms are enhancing our Electrical, Civil, and Mechanical Engineering curricula.",
+    icon: Briefcase,
     date: "Apr 21, 2024",
     readTime: "3 min read",
     stats: { views: 18, comments: 4 },
   },
   {
     id: 6,
-    title: "Back to School: What's New at Hayle Barise",
+    title: "Engineering Open House: Meet Our Faculty",
     excerpt:
-      "Explore the latest updates, programs, and opportunities available for students returning to campus this semester.",
-    icon: Book,
+      "Join us for our upcoming Engineering Open House to meet the expert faculty behind our Electrical, Civil, and Mechanical Engineering programs.",
+    icon: Users,
     date: "Apr 20, 2024",
     readTime: "5 min read",
     stats: { views: 25, comments: 10 },
@@ -81,97 +74,44 @@ const posts = [
 
 export default function LatestNews() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Banner Section */}
-      <div className="bg-gradient-to-r from-[#4c75ae] to-[#3bb995] py-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Latest Insights
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            Stay informed about the latest developments and innovations at Hayle
-            Barise Technical Development Center.
-          </p>
-        </div>
-      </div>
+    <section className="py-20 bg-gradient-to-r from-blue-500 to-purple-500">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          Engineering Insights
+        </h1>
+        <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+          Stay informed about the latest developments in Electrical, Civil, and
+          Mechanical Engineering at Hayle Barise Technical Development Center.
+        </p>
 
-      {/* Navigation Links */}
-      <div className="bg-white shadow-sm sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="flex justify-center gap-8 py-4">
-            <Link
-              href="#"
-              className="text-[#4c75ae] hover:text-[#3bb995] transition-colors font-medium"
-            >
-              All Posts
-            </Link>
-            <Link
-              href="#"
-              className="text-[#4c75ae] hover:text-[#3bb995] transition-colors font-medium"
-            >
-              Latest News
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Posts Grid */}
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 gap-8">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
-            <article
-              key={post.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-[#4c75ae]/10 rounded-full">
-                      <post.icon className="h-6 w-6 text-[#4c75ae]" />
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      <div className="flex items-center space-x-2">
-                        <Calendar className="h-4 w-4" />
-                        <span>{post.date}</span>
-                        <span>•</span>
-                        <Clock className="h-4 w-4" />
-                        <span>{post.readTime}</span>
-                      </div>
-                    </div>
-                  </div>
+            <div key={post.id} className="bg-white rounded-lg shadow-md p-6">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-4">
+                  <post.icon />
                 </div>
-
-                <h2 className="text-xl font-bold mb-3 text-[#4c75ae] hover:text-[#3bb995] transition-colors">
-                  <Link href="#">{post.title}</Link>
-                </h2>
-
-                <p className="text-gray-600 mb-4 line-clamp-2">
-                  {post.excerpt}
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4 text-sm text-gray-500">
-                    <div className="flex items-center space-x-1">
-                      <Eye className="h-4 w-4" />
-                      <span>{post.stats.views}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <MessageSquare className="h-4 w-4" />
-                      <span>{post.stats.comments}</span>
-                    </div>
-                  </div>
-                  <Button
-                    variant="link"
-                    className="text-[#3bb995] hover:text-[#4c75ae] p-0 h-auto flex items-center"
-                  >
-                    Read More <ChevronRight className="h-4 w-4 ml-1" />
-                  </Button>
+                <div>
+                  <p className="text-gray-500 text-sm">{post.date}</p>
                 </div>
               </div>
-            </article>
+              <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
+              <p className="text-gray-600 text-base mb-4">{post.excerpt}</p>
+              <div className="flex items-center">
+                <p className="text-gray-500 text-sm mr-2">{post.readTime}</p>
+                <div className="flex items-center">
+                  <Eye className="text-gray-500 mr-1" />
+                  <p className="text-gray-500 text-sm">{post.stats.views}</p>
+                </div>
+                <div className="flex items-center ml-4">
+                  <MessageSquare className="text-gray-500 mr-1" />
+                  <p className="text-gray-500 text-sm">{post.stats.comments}</p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

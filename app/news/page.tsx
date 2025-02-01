@@ -15,127 +15,137 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 const posts = [
   {
     id: 1,
-    title: "Learning at Home Effectively",
+    title: "Innovative Learning at Hayle Barise",
     excerpt:
-      "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your audience to continue reading.",
+      "Discover how our cutting-edge technical programs are shaping the future of education and empowering students with real-world skills.",
     image: "/images/learn.png",
     author: {
       name: "Admin",
       avatar: "/placeholder.svg?height=40&width=40",
       date: "Apr 25, 2024",
-      readTime: "1 min read",
+      readTime: "2 min read",
     },
     stats: {
-      views: 4,
-      comments: 0,
+      views: 12,
+      comments: 3,
     },
   },
   {
     id: 2,
-    title: "Get to Know Your Teachers",
+    title: "Meet Our Expert Faculty",
     excerpt:
-      "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your audience to continue reading.",
+      "Get to know the talented instructors behind Hayle Barise's success and their dedication to student growth and innovation.",
     image: "/images/teacher.png",
     author: {
       name: "Admin",
       avatar: "/placeholder.svg?height=40&width=40",
       date: "Apr 24, 2024",
-      readTime: "2 min read",
+      readTime: "3 min read",
     },
     stats: {
-      views: 2,
-      comments: 0,
+      views: 8,
+      comments: 2,
     },
   },
   {
     id: 3,
-    title: "The New Safety Regulations",
+    title: "New Safety Protocols for Hands-On Training",
     excerpt:
-      "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your audience to continue reading.",
+      "Learn about the updated safety measures in place to ensure a secure and productive learning environment for all students.",
     image: "/images/doctor.png",
     author: {
       name: "Admin",
       avatar: "/placeholder.svg?height=40&width=40",
       date: "Apr 23, 2024",
-      readTime: "3 min read",
+      readTime: "2 min read",
     },
     stats: {
-      views: 3,
-      comments: 2,
+      views: 15,
+      comments: 5,
     },
   },
   {
     id: 4,
-    title: "Student Council Election Updates",
+    title: "Student Achievements Spotlight",
     excerpt:
-      "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your audience to continue reading.",
+      "Celebrating the outstanding accomplishments of our students in technical innovation and community projects.",
     image: "/images/student3.png",
     author: {
       name: "Admin",
       avatar: "/placeholder.svg?height=40&width=40",
       date: "Apr 22, 2024",
-      readTime: "2 min read",
+      readTime: "4 min read",
     },
     stats: {
-      views: 5,
-      comments: 1,
+      views: 20,
+      comments: 7,
     },
   },
   {
     id: 5,
-    title: "Registration for Science Fair Is Now Open",
+    title: "Registration Open for Technical Workshops",
     excerpt:
-      "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your audience to continue reading.",
+      "Join our upcoming workshops on robotics, AI, and cloud computing to enhance your technical skills and career prospects.",
     image: "/images/student4.png",
     author: {
       name: "Admin",
       avatar: "/placeholder.svg?height=40&width=40",
       date: "Apr 21, 2024",
-      readTime: "2 min read",
+      readTime: "3 min read",
     },
     stats: {
-      views: 3,
-      comments: 0,
+      views: 18,
+      comments: 4,
     },
   },
   {
     id: 6,
-    title: "Back to School - All You Need to Know",
+    title: "Back to School: What's New at Hayle Barise",
     excerpt:
-      "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your audience to continue reading.",
+      "Explore the latest updates, programs, and opportunities available for students returning to campus this semester.",
     image: "/images/student5.png",
     author: {
       name: "Admin",
       avatar: "/placeholder.svg?height=40&width=40",
       date: "Apr 20, 2024",
-      readTime: "3 min read",
+      readTime: "5 min read",
     },
     stats: {
-      views: 8,
-      comments: 3,
+      views: 25,
+      comments: 10,
     },
   },
 ];
 
 export default function LatestNews() {
   return (
-    <div className="min-h-screen bg-white">
-      <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-[#1a1b41] py-12">
-        LATEST NEWS
-      </h1>
+    <div className="min-h-screen bg-gray-50">
+      {/* Banner Section */}
+      <div className="bg-gradient-to-r from-purple-700 to-indigo-800 py-20">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            LATEST NEWS
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+            Stay updated with the latest happenings, achievements, and
+            innovations at Hayle Barise Technical Development Center.
+          </p>
+        </div>
+      </div>
 
-      <div className="bg-[#1a1b41]">
-        <div className="max-w-4xl mx-auto">
+      {/* Navigation Links */}
+      <div className="bg-white shadow-sm">
+        <div className="max-w-4xl mx-auto px-4">
           <div className="flex justify-center gap-8 py-4">
             <Link
               href="#"
-              className="text-white/80 hover:text-white transition-colors"
+              className="text-gray-600 hover:text-purple-700 transition-colors font-medium"
             >
               All Posts
             </Link>
             <Link
               href="#"
-              className="text-white/80 hover:text-white transition-colors"
+              className="text-gray-600 hover:text-purple-700 transition-colors font-medium"
             >
               Latest News
             </Link>
@@ -143,15 +153,17 @@ export default function LatestNews() {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="flex flex-col gap-8">
+      {/* Posts Grid */}
+      <div className="max-w-4xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 gap-8">
           {posts.map((post) => (
             <article
               key={post.id}
-              className="bg-white rounded-lg overflow-hidden shadow-sm border"
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
               <div className="flex flex-col md:flex-row">
-                <div className="relative w-full md:w-[45%] h-64 md:h-auto">
+                {/* Image */}
+                <div className="relative w-full md:w-[40%] h-64 md:h-auto">
                   <Image
                     src={post.image}
                     alt={post.title}
@@ -160,8 +172,10 @@ export default function LatestNews() {
                   />
                 </div>
 
+                {/* Content */}
                 <div className="flex-1 p-6">
                   <div className="flex items-center justify-between mb-4">
+                    {/* Author Info */}
                     <div className="flex items-center gap-3">
                       <Avatar className="h-8 w-8">
                         <AvatarImage
@@ -180,6 +194,8 @@ export default function LatestNews() {
                         </div>
                       </div>
                     </div>
+
+                    {/* Dropdown Menu */}
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Button variant="ghost" size="icon" className="h-8 w-8">
@@ -195,19 +211,17 @@ export default function LatestNews() {
                     </DropdownMenu>
                   </div>
 
-                  <h2 className="text-2xl font-semibold mb-3">
-                    <Link
-                      href="#"
-                      className="hover:text-blue-600 transition-colors"
-                    >
-                      {post.title}
-                    </Link>
+                  {/* Title */}
+                  <h2 className="text-2xl font-bold mb-3 text-gray-900 hover:text-purple-700 transition-colors">
+                    <Link href="#">{post.title}</Link>
                   </h2>
 
+                  {/* Excerpt */}
                   <p className="text-gray-600 mb-4 line-clamp-2">
                     {post.excerpt}
                   </p>
 
+                  {/* Stats */}
                   <div className="flex items-center gap-4 text-sm text-gray-500">
                     <div className="flex items-center gap-1">
                       {post.stats.views} views

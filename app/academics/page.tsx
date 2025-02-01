@@ -16,7 +16,7 @@ export default function AcademicsPage() {
         Top Section / Banner
         Updated with a gradient background and modern typography
       */}
-      <section className="bg-gradient-to-r from-purple-700 to-indigo-800 text-white py-20">
+      <section className="bg-gradient-to-r from-[#3bb995] to-[#2d9175] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6">ACADEMICS AT HAYLE BARISE</h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto">
@@ -39,7 +39,7 @@ export default function AcademicsPage() {
                 className="shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-purple-700">
+                  <CardTitle className="text-2xl font-bold text-[#4c75ae]">
                     {course.title}
                   </CardTitle>
                   <CardDescription className="text-gray-600">
@@ -70,7 +70,7 @@ export default function AcademicsPage() {
                     </h3>
                     <p className="text-gray-600">{course.requirements}</p>
                   </div>
-                  <Button className="w-full bg-purple-700 hover:bg-purple-800">
+                  <Button className="w-full bg-[#4c75ae] hover:bg-[#42689f]">
                     Learn More
                   </Button>
                 </CardContent>

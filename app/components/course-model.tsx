@@ -1,10 +1,13 @@
 "use client";
 
-import type { Course } from "@/types/course";
+import type { Course } from "../types/course";
 import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { X } from "lucide-react";
 import Image from "next/image";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 interface CourseModalProps {
   course: Course;
@@ -13,6 +16,19 @@ interface CourseModalProps {
 }
 
 export function CourseModal({ course, isOpen, onClose }: CourseModalProps) {
+  const [enrollmentData, setEnrollmentData] = useState({
+    fullname: "",
+    email: "",
+    phone: "",
+    address: "",
+  });
+
+  const handleEnrollSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle enrollment submission here
+    console.log("Enrollment data:", enrollmentData);
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-3xl p-0 max-h-[90vh] overflow-hidden flex flex-col">
@@ -89,9 +105,61 @@ export function CourseModal({ course, isOpen, onClose }: CourseModalProps) {
               </p>
             </TabsContent>
             <TabsContent value="enrole">
-              <p className="text-sm text-muted-foreground">
-                Enrollment form here...
-              </p>
+              <form onSubmit={handleEnrollSubmit} className="space-y-4">
+                <Input
+                  placeholder="Full Name"
+                  value={enrollmentData.fullname}
+                  onChange={(e) =>
+                    setEnrollmentData((prev) => ({
+                      ...prev,
+                      fullname: e.target.value,
+                    }))
+                  }
+                  required
+                  className="h-12"
+                />
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  value={enrollmentData.email}
+                  onChange={(e) =>
+                    setEnrollmentData((prev) => ({
+                      ...prev,
+                      email: e.target.value,
+                    }))
+                  }
+                  required
+                  className="h-12"
+                />
+                <Input
+                  type="tel"
+                  placeholder="Phone"
+                  value={enrollmentData.phone}
+                  onChange={(e) =>
+                    setEnrollmentData((prev) => ({
+                      ...prev,
+                      phone: e.target.value,
+                    }))
+                  }
+                  required
+                  className="h-12"
+                />
+                <Input
+                  placeholder="Address"
+                  value={enrollmentData.address}
+                  onChange={(e) =>
+                    setEnrollmentData((prev) => ({
+                      ...prev,
+                      address: e.target.value,
+                    }))
+                  }
+                  required
+                  className="h-12"
+                />
+                <Button type="submit" className="w-24 h-12">
+                  Enrole
+                </Button>
+              </form>
             </TabsContent>
           </Tabs>
         </div>

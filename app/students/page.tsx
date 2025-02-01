@@ -40,7 +40,7 @@ export default function OurStudents() {
           {/* Students Image 1 */}
           <div className="relative h-[400px]">
             <Image
-              src="/images/student6.png"
+              src="/images/heyle5.png"
               alt="Students working on technical projects"
               fill
               className="object-cover"
@@ -50,7 +50,7 @@ export default function OurStudents() {
           {/* Students Image 2 */}
           <div className="relative h-[400px]">
             <Image
-              src="/images/student7.png"
+              src="/images/heyle3.png"
               alt="Students in a workshop environment"
               fill
               className="object-cover"

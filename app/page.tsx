@@ -16,9 +16,9 @@ export default function Home() {
       <IndustryStandards />
       <FeaturesGrid />
       <EngineeringHighlights />
-      <EngineeringPrograms />
-      <ServicesSection />
       <CoursesSlider courses={courses} />
+      <ServicesSection />
+      <EngineeringPrograms />
       <NewsletterForm />
       <Footer />
     </main>

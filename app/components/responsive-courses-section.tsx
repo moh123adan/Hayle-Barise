@@ -42,3 +42,5 @@ export function ResponsiveCourses({ courses }: ResponsiveCoursesProps) {
     </section>
   );
 }
+export { CoursesSlider };
+

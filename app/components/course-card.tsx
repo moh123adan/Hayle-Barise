@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CourseModal } from "./course-model";
+import type React from "react";
 
 interface CourseCardProps {
   course: Course;
@@ -17,8 +18,8 @@ export function CourseCard({ course }: CourseCardProps) {
 
   return (
     <>
-      <Card className="w-full overflow-hidden bg-white">
-        <div className="relative h-48 w-full">
+      <Card className="w-full h-full overflow-hidden bg-white flex flex-col">
+        <div className="relative h-36 sm:h-40 md:h-48 w-full">
           <Image
             src={course.image || "/placeholder.svg"}
             alt={course.title}
@@ -26,56 +27,35 @@ export function CourseCard({ course }: CourseCardProps) {
             className="object-cover"
           />
         </div>
-        <div className="p-4">
-          <h3 className="text-xl font-bold mb-4 line-clamp-2">
+        <div className="p-2 sm:p-3 md:p-4 flex-grow flex flex-col">
+          <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 md:mb-4 line-clamp-2">
             {course.title}
           </h3>
-
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <CalendarDays className="h-5 w-5 text-emerald-500 flex-shrink-0" />
-              <div>
-                <p className="text-xs uppercase text-muted-foreground">
-                  Start Date
-                </p>
-                <p className="text-sm">{course.startDate}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <Timer className="h-5 w-5 text-emerald-500 flex-shrink-0" />
-              <div>
-                <p className="text-xs uppercase text-muted-foreground">
-                  Duration
-                </p>
-                <p className="text-sm">{course.duration}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <GraduationCap className="h-5 w-5 text-emerald-500 flex-shrink-0" />
-              <div>
-                <p className="text-xs uppercase text-muted-foreground">
-                  Study Mode
-                </p>
-                <p className="text-sm">{course.studyMode}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <Clock className="h-5 w-5 text-emerald-500 flex-shrink-0" />
-              <div>
-                <p className="text-xs uppercase text-muted-foreground">
-                  Weekly Study
-                </p>
-                <p className="text-sm">{course.weeklyStudy}</p>
-              </div>
-            </div>
+          <div className="space-y-1 sm:space-y-2 md:space-y-4 mb-2 sm:mb-3 md:mb-4 flex-grow">
+            <CourseInfoItem
+              icon={CalendarDays}
+              label="START DATE"
+              value={course.startDate}
+            />
+            <CourseInfoItem
+              icon={Timer}
+              label="DURATION"
+              value={course.duration}
+            />
+            <CourseInfoItem
+              icon={GraduationCap}
+              label="STUDY MODE"
+              value={course.studyMode}
+            />
+            <CourseInfoItem
+              icon={Clock}
+              label="WEEKLY STUDY"
+              value={course.weeklyStudy}
+            />
           </div>
-
           <Button
             variant="outline"
-            className="w-full mt-6"
+            className="w-full mt-auto text-xs sm:text-sm"
             onClick={() => setIsModalOpen(true)}
           >
             Read More
@@ -89,5 +69,23 @@ export function CourseCard({ course }: CourseCardProps) {
         onClose={() => setIsModalOpen(false)}
       />
     </>
+  );
+}
+
+interface CourseInfoItemProps {
+  icon: React.ElementType;
+  label: string;
+  value: string;
+}
+
+function CourseInfoItem({ icon: Icon, label, value }: CourseInfoItemProps) {
+  return (
+    <div className="flex items-center gap-3">
+      <Icon className="h-5 w-5 text-emerald-500 flex-shrink-0" />
+      <div>
+        <p className="text-xs md:text-sm font-medium">{label}</p>
+        <p className="text-xs md:text-sm text-muted-foreground">{value}</p>
+      </div>
+    </div>
   );
 }

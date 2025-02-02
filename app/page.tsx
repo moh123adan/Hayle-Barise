@@ -6,17 +6,17 @@ import EngineeringPrograms from "./components/engineering-programs";
 import IndustryStandards from "./components/industry-standards";
 import EngineeringHighlights from "./components/tech-highlits";
 import ServicesSection from "./components/service-section";
-import { CoursesSlider } from "./components/courses-slider";
 import { courses } from "./data/courses";
+import { ResponsiveCourses } from "./components/responsive-courses-section";
 
 export default function Home() {
   return (
-    <main>
+    <main className="min-h-screen">
       <Hero />
       <IndustryStandards />
       <FeaturesGrid />
       <EngineeringHighlights />
-      <CoursesSlider courses={courses} />
+      <ResponsiveCourses courses={courses} />
       <ServicesSection />
       <EngineeringPrograms />
       <NewsletterForm />

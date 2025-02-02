@@ -31,9 +31,9 @@ export function CourseModal({ course, isOpen, onClose }: CourseModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl p-0 max-h-[90vh] overflow-hidden flex flex-col">
+      <DialogContent className="max-w-3xl p-0 max-h-[90vh] overflow-hidden flex flex-col w-[95vw]">
         <DialogHeader className="p-0 sticky top-0 z-50 bg-white">
-          <div className="relative h-[200px] w-full">
+          <div className="relative h-[150px] sm:h-[200px] w-full">
             <Image
               src={course.image || "/placeholder.svg"}
               alt={course.title}
@@ -43,18 +43,20 @@ export function CourseModal({ course, isOpen, onClose }: CourseModalProps) {
           </div>
           <button
             onClick={onClose}
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground bg-white p-2"
+            className="absolute right-2 top-2 sm:right-4 sm:top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground bg-white p-1 sm:p-2"
           >
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>
           </button>
         </DialogHeader>
 
-        <div className="p-6 overflow-y-auto flex-grow">
-          <h2 className="text-2xl font-bold mb-6">{course.title}</h2>
+        <div className="p-4 sm:p-6 overflow-y-auto flex-grow">
+          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
+            {course.title}
+          </h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-            <div className="text-center p-4 bg-gray-50 rounded-lg">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-4 sm:mb-6">
+            <div className="text-center p-2 sm:p-4 bg-gray-50 rounded-lg">
               <Image
                 src={course.author.image || "/placeholder.svg"}
                 alt={course.author.name}
@@ -62,21 +64,25 @@ export function CourseModal({ course, isOpen, onClose }: CourseModalProps) {
                 height={32}
                 className="mx-auto mb-2 rounded-full"
               />
-              <p className="text-sm font-medium">{course.author.name}</p>
+              <p className="text-xs sm:text-sm font-medium">
+                {course.author.name}
+              </p>
             </div>
-            <div className="text-center p-4 bg-gray-50 rounded-lg">
-              <p className="text-sm font-medium">Start Date</p>
-              <p className="text-sm text-muted-foreground">
+            <div className="text-center p-2 sm:p-4 bg-gray-50 rounded-lg">
+              <p className="text-xs sm:text-sm font-medium">Start Date</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 {course.startDate}
               </p>
             </div>
-            <div className="text-center p-4 bg-gray-50 rounded-lg">
-              <p className="text-sm font-medium">Duration</p>
-              <p className="text-sm text-muted-foreground">{course.duration}</p>
+            <div className="text-center p-2 sm:p-4 bg-gray-50 rounded-lg">
+              <p className="text-xs sm:text-sm font-medium">Duration</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                {course.duration}
+              </p>
             </div>
-            <div className="text-center p-4 bg-gray-50 rounded-lg">
-              <p className="text-sm font-medium">Study Mode</p>
-              <p className="text-sm text-muted-foreground">
+            <div className="text-center p-2 sm:p-4 bg-gray-50 rounded-lg">
+              <p className="text-xs sm:text-sm font-medium">Study Mode</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 {course.studyMode}
               </p>
             </div>
@@ -84,28 +90,41 @@ export function CourseModal({ course, isOpen, onClose }: CourseModalProps) {
 
           <Tabs defaultValue="module" className="w-full">
             <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4">
-              <TabsTrigger value="module">MODULE</TabsTrigger>
-              <TabsTrigger value="summary">SUMMARY</TabsTrigger>
-              <TabsTrigger value="requirements">REQUIREMENTS</TabsTrigger>
-              <TabsTrigger value="enrole">ENROLE</TabsTrigger>
+              <TabsTrigger value="module" className="text-xs sm:text-sm">
+                MODULE
+              </TabsTrigger>
+              <TabsTrigger value="summary" className="text-xs sm:text-sm">
+                SUMMARY
+              </TabsTrigger>
+              <TabsTrigger value="requirements" className="text-xs sm:text-sm">
+                REQUIREMENTS
+              </TabsTrigger>
+              <TabsTrigger value="enrole" className="text-xs sm:text-sm">
+                ENROLE
+              </TabsTrigger>
             </TabsList>
-            <TabsContent value="module" className="mt-6">
-              <ul className="space-y-3 text-sm">
+            <TabsContent value="module" className="mt-4 sm:mt-6">
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                 {course.modules.map((module, index) => (
                   <li key={index}>- {module}</li>
                 ))}
               </ul>
             </TabsContent>
             <TabsContent value="summary">
-              <p className="text-sm text-muted-foreground">{course.summary}</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                {course.summary}
+              </p>
             </TabsContent>
             <TabsContent value="requirements">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 {course.requirements}
               </p>
             </TabsContent>
             <TabsContent value="enrole">
-              <form onSubmit={handleEnrollSubmit} className="space-y-4">
+              <form
+                onSubmit={handleEnrollSubmit}
+                className="space-y-3 sm:space-y-4"
+              >
                 <Input
                   placeholder="Full Name"
                   value={enrollmentData.fullname}
@@ -116,7 +135,7 @@ export function CourseModal({ course, isOpen, onClose }: CourseModalProps) {
                     }))
                   }
                   required
-                  className="h-12"
+                  className="h-10 sm:h-12 text-sm"
                 />
                 <Input
                   type="email"
@@ -129,7 +148,7 @@ export function CourseModal({ course, isOpen, onClose }: CourseModalProps) {
                     }))
                   }
                   required
-                  className="h-12"
+                  className="h-10 sm:h-12 text-sm"
                 />
                 <Input
                   type="tel"
@@ -142,7 +161,7 @@ export function CourseModal({ course, isOpen, onClose }: CourseModalProps) {
                     }))
                   }
                   required
-                  className="h-12"
+                  className="h-10 sm:h-12 text-sm"
                 />
                 <Input
                   placeholder="Address"
@@ -154,9 +173,12 @@ export function CourseModal({ course, isOpen, onClose }: CourseModalProps) {
                     }))
                   }
                   required
-                  className="h-12"
+                  className="h-10 sm:h-12 text-sm"
                 />
-                <Button type="submit" className="w-24 h-12">
+                <Button
+                  type="submit"
+                  className="w-full sm:w-24 h-10 sm:h-12 text-sm"
+                >
                   Enrole
                 </Button>
               </form>

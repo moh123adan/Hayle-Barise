@@ -129,7 +129,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
           <p>
-            © 2025 by Hayle Barise. Powered and secured by{'Mohamed Adan'}
+            © 2025 by Hayle Barise. Powered and secured by {'Mohamed Adan'}
             <Link
               href="#"
               className="text-gray-300 hover:text-white transition-colors"

@@ -28,7 +28,7 @@ export default function Hero() {
           className="absolute inset-0"
         >
           <Image
-            src={images[currentIndex].src || "/placeholder.svg"}
+            src={images[currentIndex].src || '/placeholder.svg'}
             alt={images[currentIndex].alt}
             fill
             className="object-cover"
@@ -47,7 +47,7 @@ export default function Hero() {
             className="relative top-1/2 -translate-y-1/2 space-y-6 rounded-lg bg-[#4c75ae] p-12 md:max-w-xl"
           >
             <h1 className="text-5xl font-bold text-white">
-              Welcome to Hayle Barise
+              Unlock Your Potential Welcome to Hayle Barise
             </h1>
             <p className="text-2xl text-white">
               Empowering minds, shaping futures

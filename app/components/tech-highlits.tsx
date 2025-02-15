@@ -35,8 +35,14 @@ export default function EngineeringHighlights() {
     <section className="bg-white py-20">
       <div className="container mx-auto px-4">
         <h2 className="mb-12 text-center text-4xl font-bold tracking-tight text-[#1C1F2E]">
-          ENGINEERING HIGHLIGHTS
+          Build Connections
         </h2>
+        <p className="text-center text-lg text-gray-700">
+          HBTDC prides itself in successfully transitioning 80% of its trainees
+          into employment or further education within the first six months of
+          graduating. Our success rate is supported by our widespread
+          connections with businesses nationwide.
+        </p>
         <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {engineeringHighlights.map((item, index) => (
             <div
@@ -45,7 +51,7 @@ export default function EngineeringHighlights() {
             >
               <div className="relative h-[300px]">
                 <Image
-                  src={item.image || "/placeholder.svg"}
+                  src={item.image || '/placeholder.svg'}
                   alt={item.title}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -81,7 +87,7 @@ export default function EngineeringHighlights() {
             asChild
             className="bg-[#3bb995] px-8 py-6 text-white hover:bg-[#268167]"
           >
-            <Link href="/engineering-highlights">Explore All Highlights</Link>
+            <Link href="/engineering-highlights">YouTube videos</Link>
           </Button>
         </div>
       </div>

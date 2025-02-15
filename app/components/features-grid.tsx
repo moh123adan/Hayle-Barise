@@ -38,7 +38,7 @@ export default function FeaturesGrid() {
       {/* Bottom Left Content */}
       <div className="flex flex-col items-center justify-center bg-[#1C1F2E] p-12 text-center">
         <h2 className="mb-4 text-3xl font-semibold text-[#3bb995]">
-          Life Changing 
+          Life Changing
         </h2>
         <p className="mb-8 max-w-md text-sm leading-relaxed text-gray-300">
           Hayle Barise Technical Development Centre provides its trainees with a

@@ -17,10 +17,6 @@ export default function Footer() {
                 className="w-44 h-24"
               />
               <div className="flex flex-col">
-                <span className="font-bold text-lg">HAYLE BARISE</span>
-                <span className="text-sm text-gray-300">
-                  TECHNICAL DEVELOPMENT CENTER
-                </span>
               </div>
             </div>
           </div>

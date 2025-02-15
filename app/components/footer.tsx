@@ -134,7 +134,7 @@ export default function Footer() {
               href="#"
               className="text-gray-300 hover:text-white transition-colors"
             >
-              Wix
+              
             </Link>
           </p>
         </div>

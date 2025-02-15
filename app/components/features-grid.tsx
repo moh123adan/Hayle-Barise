@@ -19,13 +19,13 @@ export default function FeaturesGrid() {
       {/* Top Right Content */}
       <div className="flex flex-col items-center justify-center bg-[#1C1F2E] p-12 text-center">
         <h2 className="mb-4 text-3xl font-semibold text-[#3bb995]">
-          Hands-On Learning
+          State of the Art
         </h2>
         <p className="mb-8 max-w-md text-sm leading-relaxed text-gray-300">
-          At Hayle Barise, we believe in learning by doing. Our state-of-the-art
-          labs and workshops provide students with practical, hands-on
-          experience in their chosen fields. From coding to engineering, you'll
-          be working with the latest tools and technologies used in industry.
+          At Hayle Barise trainees are able to benefit from many exceptional
+          training programs, where they will be exposed to state-of-the-art
+          training techniques and equipment unseen in Somalia for over thirty
+          years.
         </p>
         <Button
           asChild
@@ -38,14 +38,13 @@ export default function FeaturesGrid() {
       {/* Bottom Left Content */}
       <div className="flex flex-col items-center justify-center bg-[#1C1F2E] p-12 text-center">
         <h2 className="mb-4 text-3xl font-semibold text-[#3bb995]">
-          Career-Focused Programs
+          Life Changing 
         </h2>
         <p className="mb-8 max-w-md text-sm leading-relaxed text-gray-300">
-          Our programs are designed with your future in mind. We offer a wide
-          range of technical courses that align with industry demands, ensuring
-          you're well-prepared for the job market. From software development to
-          mechanical engineering, find the program that matches your career
-          goals.
+          Hayle Barise Technical Development Centre provides its trainees with a
+          network of skills and connections that will change their lives. With
+          the skills they obtain at the centre, they will be able to seek
+          employment, build businesses and become world leaders.
         </p>
         <Button
           asChild

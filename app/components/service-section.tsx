@@ -31,7 +31,6 @@ export default function ServicesSection() {
   return (
     <section className="py-16 px-4 max-w-7xl mx-auto">
       <div className="text-center mb-12">
-        <h3 className="text-emerald-500 font-medium mb-4 tracking-wide">OUR PROGRAMS</h3>
         <h2 className="text-4xl font-bold text-slate-900">What We Offer</h2>
       </div>
 

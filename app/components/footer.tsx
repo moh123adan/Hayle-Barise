@@ -16,8 +16,7 @@ export default function Footer() {
                 height={50}
                 className="w-44 h-24"
               />
-              <div className="flex flex-col">
-              </div>
+              <div className="flex flex-col"></div>
             </div>
           </div>
 
@@ -121,10 +120,8 @@ export default function Footer() {
               GET IN TOUCH
             </h3>
             <div className="space-y-2 text-gray-300">
-              <p>500 Terry Francine Street</p>
-              <p>San Francisco, CA 94158</p>
-              <p>Tel: 123-456-7890</p>
-              <p>info@mysite.com</p>
+              Balad Rd, Yaqshid District Mogadishu Tel: +252 61 1861618
+              support@haylebarise.com
             </div>
           </div>
         </div>
@@ -132,7 +129,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
           <p>
-            © 2025 by Ridgeview Middle School. Powered and secured by{" "}
+            © 2025 by Hayle Barise. Powered and secured by{'Mohamed Adan'}
             <Link
               href="#"
               className="text-gray-300 hover:text-white transition-colors"

@@ -7,9 +7,9 @@ import { useImageSlider, ImageSlide } from "../hooks/useImageSlider";
 
 const images: ImageSlide[] = [
   { src: "/images/student.jpg", alt: "Students at school" },
-  { src: "/images/heyle2.png", alt: "Classroom" },
-  { src: "/images/heyle3.png", alt: "School library" },
-  { src: "/images/heyle4.png", alt: "School playground" },
+  { src: "/images/student1.jpg", alt: "Classroom" },
+  { src: "/images/student2.jpg", alt: "School library" },
+  { src: "/images/student3.jpg", alt: "School playground" },
 ];
 
 export default function Hero() {

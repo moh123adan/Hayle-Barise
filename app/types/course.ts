@@ -1,3 +1,5 @@
+import { ReactNode } from "react"
+
 export interface Course {
     details: ReactNode
     courseLeader: any

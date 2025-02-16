@@ -19,7 +19,7 @@ export function CourseCard({ course }: CourseCardProps) {
 
   return (
     <>
-      <Card className="bg-white rounded-lg overflow-hidden h-full flex flex-col">
+      <Card className="bg-white rounded-lg overflow-hidden w-96 h-full flex flex-col">
         <div className="relative h-48">
           <Image
             src={
@@ -93,4 +93,3 @@ function CourseInfoItem({ icon: Icon, label, value }: CourseInfoItemProps) {
     </div>
   );
 }
-

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useImageSlider, ImageSlide } from "../hooks/useImageSlider";
 
 const images: ImageSlide[] = [
-  { src: "/images/heyle1.png", alt: "Students at school" },
+  { src: "/images/student.jpg", alt: "Students at school" },
   { src: "/images/heyle2.png", alt: "Classroom" },
   { src: "/images/heyle3.png", alt: "School library" },
   { src: "/images/heyle4.png", alt: "School playground" },

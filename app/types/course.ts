@@ -1,4 +1,7 @@
 export interface Course {
+    details: ReactNode
+    courseLeader: any
+    program: string
     id: number
     title: string
     image: string

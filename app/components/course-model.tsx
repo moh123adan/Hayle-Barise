@@ -1,5 +1,7 @@
 "use client";
 
+import type React from "react";
+
 import type { Course } from "../types/course";
 import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -57,18 +59,6 @@ export function CourseModal({ course, isOpen, onClose }: CourseModalProps) {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-4 sm:mb-6">
             <div className="text-center p-2 sm:p-4 bg-gray-50 rounded-lg">
-              <Image
-                src={course.author.image || "/placeholder.svg"}
-                alt={course.author.name}
-                width={32}
-                height={32}
-                className="mx-auto mb-2 rounded-full"
-              />
-              <p className="text-xs sm:text-sm font-medium">
-                {course.author.name}
-              </p>
-            </div>
-            <div className="text-center p-2 sm:p-4 bg-gray-50 rounded-lg">
               <p className="text-xs sm:text-sm font-medium">Start Date</p>
               <p className="text-xs sm:text-sm text-muted-foreground">
                 {course.startDate}
@@ -81,46 +71,63 @@ export function CourseModal({ course, isOpen, onClose }: CourseModalProps) {
               </p>
             </div>
             <div className="text-center p-2 sm:p-4 bg-gray-50 rounded-lg">
-              <p className="text-xs sm:text-sm font-medium">Study Mode</p>
+              <p className="text-xs sm:text-sm font-medium">Program</p>
               <p className="text-xs sm:text-sm text-muted-foreground">
-                {course.studyMode}
+                {course.program}
+              </p>
+            </div>
+            <div className="text-center p-2 sm:p-4 bg-gray-50 rounded-lg">
+              <p className="text-xs sm:text-sm font-medium">Weekly Study</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                {course.weeklyStudy}
               </p>
             </div>
           </div>
 
-          <Tabs defaultValue="module" className="w-full">
+          <Tabs defaultValue="summary" className="w-full">
             <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4">
-              <TabsTrigger value="module" className="text-xs sm:text-sm">
-                MODULE
-              </TabsTrigger>
               <TabsTrigger value="summary" className="text-xs sm:text-sm">
                 SUMMARY
               </TabsTrigger>
-              <TabsTrigger value="requirements" className="text-xs sm:text-sm">
-                REQUIREMENTS
+              <TabsTrigger value="details" className="text-xs sm:text-sm">
+                DETAILS
               </TabsTrigger>
-              <TabsTrigger value="enrole" className="text-xs sm:text-sm">
-                ENROLE
+              <TabsTrigger value="modules" className="text-xs sm:text-sm">
+                MODULES
+              </TabsTrigger>
+              <TabsTrigger value="enroll" className="text-xs sm:text-sm">
+                ENROLL
               </TabsTrigger>
             </TabsList>
-            <TabsContent value="module" className="mt-4 sm:mt-6">
+            <TabsContent value="summary" className="mt-4 sm:mt-6">
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                {course.summary}
+              </p>
+            </TabsContent>
+            <TabsContent value="details" className="mt-4 sm:mt-6">
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                {course.details}
+              </p>
+              {course.courseLeader && (
+                <div className="mt-4">
+                  <h3 className="text-sm font-semibold">Course Leader</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    {course.courseLeader.name}
+                  </p>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-2">
+                    {course.courseLeader.description}
+                  </p>
+                </div>
+              )}
+            </TabsContent>
+            <TabsContent value="modules" className="mt-4 sm:mt-6">
               <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                 {course.modules.map((module, index) => (
                   <li key={index}>- {module}</li>
                 ))}
               </ul>
             </TabsContent>
-            <TabsContent value="summary">
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                {course.summary}
-              </p>
-            </TabsContent>
-            <TabsContent value="requirements">
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                {course.requirements}
-              </p>
-            </TabsContent>
-            <TabsContent value="enrole">
+            <TabsContent value="enroll">
               <form
                 onSubmit={handleEnrollSubmit}
                 className="space-y-3 sm:space-y-4"
@@ -179,7 +186,7 @@ export function CourseModal({ course, isOpen, onClose }: CourseModalProps) {
                   type="submit"
                   className="w-full sm:w-24 h-10 sm:h-12 text-sm"
                 >
-                  Enrole
+                  Enroll
                 </Button>
               </form>
             </TabsContent>

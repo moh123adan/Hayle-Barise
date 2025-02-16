@@ -20,7 +20,7 @@ export const courses = [
       ],
       details:
         "In trainees' first year, they are familiarised with the fundamentals of mechanical engineering, building construction, electricity, workshop technology and welding alongside mathematics, physics and english, so that trainees are given the basic foundation to then proceed to specialise in their chosen course. In their second and final year we, as a centre, tailor our trainees' training program to align with their aims and aspirations. Students are guided through mastering material science, mechanical science and advanced topics such as arc and gas welding, hydraulics and vehicle body work to enhance our trainees' practical capabilities. During the training program, trainees will take part in a three-month work placement with the centre's partnered companies, these companies include the Coca Cola Company, Hamar Water Development Company, Dalsan Water and many more.",
-      image: "/images/metal-work.jpg", // You'll need to provide appropriate images
+      image: "/images/student1.jpg", // You'll need to provide appropriate images
     },
     {
       id: 2,
@@ -123,7 +123,7 @@ export const courses = [
       modules: [],
       details:
         "This course covers both hardware and software aspects of mobile and computer repair, equipping students with in-demand technical skills.",
-      image: "/images/mobile-computer-repair.jpg",
+      image: "/images/mobile-computer-repair.png",
     },
     {
       id: 7,

@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import type React from "react";
+
 import type { Course } from "../types/course";
 import { CalendarDays, Clock, GraduationCap, Timer } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useState } from "react";
 import { CourseModal } from "./course-model";
-import type React from "react";
 
 interface CourseCardProps {
   course: Course;
@@ -18,20 +19,23 @@ export function CourseCard({ course }: CourseCardProps) {
 
   return (
     <>
-      <Card className="w-full h-full overflow-hidden bg-white flex flex-col">
-        <div className="relative h-36 sm:h-40 md:h-48 w-full">
+      <Card className="bg-white rounded-lg overflow-hidden h-full flex flex-col">
+        <div className="relative h-48">
           <Image
-            src={course.image || "/placeholder.svg"}
+            src={
+              course.image ||
+              "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ysR9YWYmBE4muAvRXTUMpX4OZuWePS.png"
+            }
             alt={course.title}
             fill
             className="object-cover"
           />
         </div>
-        <div className="p-2 sm:p-3 md:p-4 flex-grow flex flex-col">
-          <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 md:mb-4 line-clamp-2">
+        <div className="p-6 flex flex-col flex-grow">
+          <h3 className="text-xl font-bold mb-4 text-gray-900">
             {course.title}
           </h3>
-          <div className="space-y-1 sm:space-y-2 md:space-y-4 mb-2 sm:mb-3 md:mb-4 flex-grow">
+          <div className="space-y-4 mb-6 flex-grow">
             <CourseInfoItem
               icon={CalendarDays}
               label="START DATE"
@@ -45,7 +49,7 @@ export function CourseCard({ course }: CourseCardProps) {
             <CourseInfoItem
               icon={GraduationCap}
               label="STUDY MODE"
-              value={course.studyMode}
+              value={course.program}
             />
             <CourseInfoItem
               icon={Clock}
@@ -55,7 +59,7 @@ export function CourseCard({ course }: CourseCardProps) {
           </div>
           <Button
             variant="outline"
-            className="w-full mt-auto text-xs sm:text-sm"
+            className="w-full"
             onClick={() => setIsModalOpen(true)}
           >
             Read More
@@ -83,9 +87,10 @@ function CourseInfoItem({ icon: Icon, label, value }: CourseInfoItemProps) {
     <div className="flex items-center gap-3">
       <Icon className="h-5 w-5 text-emerald-500 flex-shrink-0" />
       <div>
-        <p className="text-xs md:text-sm font-medium">{label}</p>
-        <p className="text-xs md:text-sm text-muted-foreground">{value}</p>
+        <p className="text-sm font-medium text-gray-500">{label}</p>
+        <p className="text-sm text-gray-900">{value}</p>
       </div>
     </div>
   );
 }
+

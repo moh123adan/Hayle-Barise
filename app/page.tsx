@@ -4,9 +4,10 @@ import NewsletterForm from "./components/newsletter-form";
 import Footer from "./components/footer";
 import IndustryStandards from "./components/industry-standards";
 import EngineeringHighlights from "./components/tech-highlits";
-import ServicesSection from "./components/service-section";
 import { courses } from "./data/courses";
 import { CoursesSlider } from "./components/responsive-courses-section";
+import PartnersSection from "./components/parteners-section";
+import VideoSlider from "./components/video-slider";
 
 export default function Home() {
   return (
@@ -16,7 +17,8 @@ export default function Home() {
       <FeaturesGrid />
       <EngineeringHighlights />
       <CoursesSlider courses={courses} />
-      <ServicesSection />
+      <PartnersSection />
+      <VideoSlider />
       <NewsletterForm />
       <Footer />
     </main>

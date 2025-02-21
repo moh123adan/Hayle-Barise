@@ -1,14 +1,28 @@
 "use client";
 
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useImageSlider, ImageSlide } from "../hooks/useImageSlider";
+import { useImageSlider, type ImageSlide } from "../hooks/useImageSlider";
 
+// Update the image paths to ensure exact case matching
 const images: ImageSlide[] = [
-  { src: "/images/student.jpg", alt: "Students at school" },
-  { src: "/images/student4.jpg", alt: "Classroom" },
-  { src: "/images/student2.jpg", alt: "School library" },
-  { src: "/images/student3.jpg", alt: "School playground" },
+  {
+    src: "/images/Student.jpg", // Make sure this matches the exact filename case
+    alt: "Students at school",
+  },
+  {
+    src: "/images/Student4.jpg", // Make sure this matches the exact filename case
+    alt: "Classroom",
+  },
+  {
+    src: "/images/Student2.jpg", // Make sure this matches the exact filename case
+    alt: "School library",
+  },
+  {
+    src: "/images/Student3.jpg", // Make sure this matches the exact filename case
+    alt: "School playground",
+  },
 ];
 
 export default function Hero() {
@@ -16,7 +30,6 @@ export default function Hero() {
 
   return (
     <div className="relative h-[600px] w-full overflow-hidden">
-      {/* Image Slider */}
       <AnimatePresence initial={false}>
         <motion.div
           key={currentIndex}
@@ -26,11 +39,17 @@ export default function Hero() {
           transition={{ duration: 0.2 }}
           className="absolute inset-0"
         >
-          <img
-            src={images[currentIndex].src || "/placeholder.svg"}
-            alt={images[currentIndex].alt}
-            className="object-cover w-full h-full"
-          />
+          <div className="relative h-full w-full">
+            <Image
+              src={images[currentIndex].src || "/placeholder.svg"}
+              alt={images[currentIndex].alt}
+              fill
+              sizes="100vw"
+              priority={currentIndex === 0}
+              className="object-cover"
+              unoptimized // Add this temporarily to test if it's an optimization issue
+            />
+          </div>
         </motion.div>
       </AnimatePresence>
 

@@ -1,4 +1,10 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const partners = [
   { name: "BECO", logo: "/images/beco.png" },
@@ -17,33 +23,73 @@ const partners = [
   { name: "Somali International University", logo: "/images/siu.png" },
 ];
 
-export default function PartnersSection() {
+const duplicatedPartners = [...partners, ...partners];
+
+export default function PartnersSlider() {
+  const [slidesToShow, setSlidesToShow] = useState(4);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setSlidesToShow(1);
+      } else if (window.innerWidth < 768) {
+        setSlidesToShow(2);
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(3);
+      } else {
+        setSlidesToShow(4);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: slidesToShow,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 5000,
+    autoplaySpeed: 0,
+    cssEase: "linear",
+    pauseOnHover: false,
+    arrows: false,
+  };
+
   return (
     <section className="w-full bg-white py-16 md:py-24">
       <div className="container mx-auto px-4">
         <h2 className="mb-12 text-center text-3xl font-bold text-[#3bb995] md:text-4xl">
           Our Partners
         </h2>
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4">
-          {partners.map((partner) => (
-            <div
-              key={partner.name}
-              className="group relative flex items-center justify-center"
-            >
-              <div className="w-full overflow-hidden rounded-lg p-4 transition-all duration-200 hover:shadow-lg hover:shadow-[#4c75ae]/20">
-                <div className="relative h-24 w-full">
-                  <Image
-                    src={partner.logo || "/placeholder.svg"}
-                    alt={`${partner.name} logo`}
-                    fill
-                    className="object-contain transition-transform duration-200 group-hover:scale-105"
-                  />
+        <Slider {...settings} className="partners-slider">
+          {duplicatedPartners.map((partner, index) => (
+            <div key={`${partner.name}-${index}`} className="px-2">
+              <div className="group relative flex items-center justify-center">
+                <div className="w-full overflow-hidden rounded-lg p-4 transition-all duration-200 hover:shadow-lg hover:shadow-[#4c75ae]/20">
+                  <div className="relative h-24 w-full">
+                    <Image
+                      src={partner.logo || "/placeholder.svg"}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className="object-contain transition-transform duration-200 group-hover:scale-105"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           ))}
-        </div>
+        </Slider>
       </div>
+      <style jsx global>{`
+        .partners-slider .slick-track {
+          display: flex;
+          align-items: center;
+        }
+      `}</style>
     </section>
   );
 }

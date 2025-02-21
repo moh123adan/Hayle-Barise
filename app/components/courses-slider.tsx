@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import type { Course } from "../types/course";
 import { CourseCard } from "./course-card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -14,9 +14,20 @@ export function CoursesSlider({ courses }: CoursesSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
+  const slidesPerView = isSmallScreen ? 1 : 3;
+  const maxIndex = Math.max(0, courses.length - slidesPerView);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, maxIndex));
+  }, [maxIndex]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+  }, []);
+
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 640);
+      setIsSmallScreen(window.innerWidth < 768);
     };
 
     handleResize();
@@ -24,21 +35,14 @@ export function CoursesSlider({ courses }: CoursesSliderProps) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const maxIndex = Math.max(0, courses.length - 3);
-  const canGoNext = currentIndex < maxIndex;
-  const canGoPrev = currentIndex > 0;
-
-  const nextSlide = () => {
-    if (canGoNext) {
-      setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, maxIndex));
-    }
-  };
-
-  const prevSlide = () => {
-    if (canGoPrev) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
-    }
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (currentIndex < maxIndex) {
+        nextSlide();
+      }
+    }, 5000); // Auto-slide every 5 seconds
+    return () => clearInterval(interval);
+  }, [currentIndex, maxIndex, nextSlide]);
 
   return (
     <section className="bg-[#4c75ae] py-12">
@@ -54,76 +58,60 @@ export function CoursesSlider({ courses }: CoursesSliderProps) {
         </div>
 
         <div className="max-w-[1200px] mx-auto relative">
-          {isSmallScreen ? (
-            <div className="space-y-6">
+          <div className="overflow-hidden mx-12">
+            <div
+              className="flex transition-transform duration-500 ease-in-out gap-6"
+              style={{
+                transform: `translateX(-${
+                  currentIndex * (100 / slidesPerView)
+                }%)`,
+                width: `${(courses.length * 100) / slidesPerView}%`,
+              }}
+            >
               {courses.map((course) => (
-                <CourseCard key={course.id} course={course} />
+                <div
+                  key={course.id}
+                  className={`w-full ${isSmallScreen ? "flex-shrink-0" : ""}`}
+                  style={{ flex: `0 0 ${100 / slidesPerView}%` }}
+                >
+                  <CourseCard course={course} />
+                </div>
               ))}
             </div>
-          ) : (
-            <>
-              <div className="overflow-hidden mx-12">
-                <div
-                  className="flex transition-transform duration-500 ease-in-out gap-6"
-                  style={{
-                    transform: `translateX(-${currentIndex * (100 / 3)}%)`,
-                    width: `${(courses.length * 100) / 3}%`,
-                  }}
-                >
-                  {courses.map((course) => (
-                    <div key={course.id} className="w-full">
-                      <CourseCard course={course} />
-                    </div>
-                  ))}
-                </div>
-              </div>
+          </div>
 
-              <Button
-                variant="outline"
-                size="icon"
-                className={`absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg transition-opacity ${
-                  canGoPrev
-                    ? "hover:bg-gray-100 opacity-100"
-                    : "opacity-50 cursor-not-allowed"
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg transition-opacity hover:bg-gray-100 opacity-100"
+            onClick={prevSlide}
+            disabled={currentIndex === 0}
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </Button>
+
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg transition-opacity hover:bg-gray-100 opacity-100"
+            onClick={nextSlide}
+            disabled={currentIndex === maxIndex}
+          >
+            <ChevronRight className="h-6 w-6" />
+          </Button>
+
+          <div className="flex justify-center items-center gap-2 mt-8">
+            {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={`h-2 rounded-full transition-all ${
+                  currentIndex === idx ? "w-8 bg-white" : "w-2 bg-gray-300"
                 }`}
-                onClick={prevSlide}
-                disabled={!canGoPrev}
-              >
-                <ChevronLeft className="h-6 w-6" />
-              </Button>
-
-              <Button
-                variant="outline"
-                size="icon"
-                className={`absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg transition-opacity ${
-                  canGoNext
-                    ? "hover:bg-gray-100 opacity-100"
-                    : "opacity-50 cursor-not-allowed"
-                }`}
-                onClick={nextSlide}
-                disabled={!canGoNext}
-              >
-                <ChevronRight className="h-6 w-6" />
-              </Button>
-
-              <div className="flex justify-center items-center gap-2 mt-8">
-                {Array.from({ length: Math.ceil(courses.length / 3) }).map(
-                  (_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentIndex(idx * 3)}
-                      className={`h-2 rounded-full transition-all ${
-                        Math.floor(currentIndex / 3) === idx
-                          ? "w-8 bg-white"
-                          : "w-2 bg-gray-300"
-                      }`}
-                      aria-label={`Go to slide ${idx + 1}`}
-                    />
-                  )
-                )}
-              </div>
-            </>
-          )}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

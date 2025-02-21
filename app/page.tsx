@@ -16,8 +16,8 @@ export default function Home() {
       <IndustryStandards />
       <FeaturesGrid />
       <EngineeringHighlights />
-      <CoursesSlider courses={courses} />
       <PartnersSection />
+      <CoursesSlider courses={courses} />
       <VideoSlider />
       <NewsletterForm />
       <Footer />

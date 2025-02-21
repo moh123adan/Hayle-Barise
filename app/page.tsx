@@ -16,10 +16,10 @@ export default function Home() {
       <IndustryStandards />
       <FeaturesGrid />
       <EngineeringHighlights />
-      <PartnersSection />
       <CourseSlider courses={courses} />
       <VideoSlider />
       <NewsletterForm />
+      <PartnersSection />
       <Footer />
     </main>
   );

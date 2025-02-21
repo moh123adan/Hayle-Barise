@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useImageSlider, ImageSlide } from "../hooks/useImageSlider";
@@ -27,12 +26,10 @@ export default function Hero() {
           transition={{ duration: 0.2 }}
           className="absolute inset-0"
         >
-          <Image
+          <img
             src={images[currentIndex].src || "/placeholder.svg"}
             alt={images[currentIndex].alt}
-            fill
-            className="object-cover"
-            priority
+            className="object-cover w-full h-full"
           />
         </motion.div>
       </AnimatePresence>

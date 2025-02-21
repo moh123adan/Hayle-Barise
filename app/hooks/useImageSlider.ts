@@ -1,11 +1,14 @@
-import { useState, useEffect } from 'react'
+"use client"
+
+import { useState, useEffect } from "react"
+import type { StaticImageData } from "next/image"
 
 export interface ImageSlide {
-    src: string
+    src: string | StaticImageData
     alt: string
 }
 
-export function useImageSlider(images: ImageSlide[], interval: number = 5000) {
+export function useImageSlider(images: ImageSlide[], interval = 5000) {
     const [currentIndex, setCurrentIndex] = useState(0)
 
     useEffect(() => {

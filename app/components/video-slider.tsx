@@ -1,4 +1,6 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -6,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { VideoModal } from "./video-model";
 
 const videos = [
   {
@@ -56,11 +59,21 @@ const videos = [
 ];
 
 export default function VideoSlider() {
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+
+  const openVideoModal = (url: string) => {
+    setSelectedVideo(url);
+  };
+
+  const closeVideoModal = () => {
+    setSelectedVideo(null);
+  };
+
   return (
     <section className="w-full bg-white py-16">
       <div className="container mx-auto px-4">
         <div className="mb-8 flex items-center justify-between">
-          <h2 className="text-4xl  mx-auto font-semibold text-[#3bb995]">
+          <h2 className="text-4xl mx-auto font-semibold text-[#3bb995]">
             Our Highlights
           </h2>
         </div>
@@ -79,11 +92,9 @@ export default function VideoSlider() {
                   className="pl-4 md:basis-1/2 lg:basis-1/3"
                 >
                   <div className="group">
-                    <Link
-                      href={video.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
+                    <button
+                      onClick={() => openVideoModal(video.url)}
+                      className="block w-full text-left"
                     >
                       <div className="relative mb-3 aspect-video w-full overflow-hidden rounded-xl">
                         <img
@@ -101,7 +112,7 @@ export default function VideoSlider() {
                       <h3 className="line-clamp-2 text-sm font-medium text-gray-900">
                         {video.title}
                       </h3>
-                    </Link>
+                    </button>
                   </div>
                 </CarouselItem>
               ))}
@@ -111,6 +122,13 @@ export default function VideoSlider() {
           </Carousel>
         </div>
       </div>
+      {selectedVideo && (
+        <VideoModal
+          isOpen={!!selectedVideo}
+          onClose={closeVideoModal}
+          videoUrl={selectedVideo}
+        />
+      )}
     </section>
   );
 }

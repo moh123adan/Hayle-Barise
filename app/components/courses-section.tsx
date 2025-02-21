@@ -1,6 +1,6 @@
-import { CourseCard } from "./course-card"
-import Link from "next/link"
-import { courses } from "../data/courses"
+import { CourseCard } from "./course-card";
+import Link from "next/link";
+import { courses } from "../data/courses";
 
 export default function CoursesSection() {
   return (
@@ -10,7 +10,10 @@ export default function CoursesSection() {
           <h2 className="mb-3 text-4xl font-bold">Courses</h2>
           <p className="text-xl">
             Shaping the future through innovation at{" "}
-            <Link href="https://www.facebook.com/haylebarise1/photos" className="font-semibold hover:underline">
+            <Link
+              href="https://www.facebook.com/haylebarise1/photos"
+              className="font-semibold hover:underline"
+            >
               Hayle Barise Technical Development Center
             </Link>
           </p>
@@ -22,6 +25,5 @@ export default function CoursesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

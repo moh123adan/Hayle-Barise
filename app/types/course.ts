@@ -1,4 +1,6 @@
 import { ReactNode } from "react"
+import type { StaticImageData } from "next/image"
+
 
 export interface Course {
     details: ReactNode
@@ -6,14 +8,13 @@ export interface Course {
     program: string
     id: number
     title: string
-    image: string
+    image: StaticImageData,
     startDate: string
     duration: string
     studyMode: string
     weeklyStudy: string
     author: {
         name: string
-        image: string
     }
     modules: string[]
     summary: string

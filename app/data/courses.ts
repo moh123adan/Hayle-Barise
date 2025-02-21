@@ -1,4 +1,15 @@
-export const courses = [
+import student1 from '../assets/student1.jpg';
+import electricalInstallation from '../assets/electrical-installation.jpg';
+import masonryTiling from '../assets/masonry-tiling.jpg';
+import tailoring from '../assets/tailoring.jpg';
+import hospitalityCatering from '../assets/hospitality-catering.jpg';
+import mobileComputerRepair from '../assets/mobile-computer-repair.png';
+import surveying from '../assets/surveying.jpg';
+import { ReactNode } from "react"
+import type { StaticImageData } from "next/image"
+import { Course } from '../types/course'
+
+export const courses: Course[] = [
     {
         id: 1,
         title: "Metal Work and Welding",
@@ -20,11 +31,10 @@ export const courses = [
         ],
         details:
             "In trainees' first year, they are familiarised with the fundamentals of mechanical engineering, building construction, electricity, workshop technology and welding alongside mathematics, physics and english, so that trainees are given the basic foundation to then proceed to specialise in their chosen course. In their second and final year we, as a centre, tailor our trainees' training program to align with their aims and aspirations. Students are guided through mastering material science, mechanical science and advanced topics such as arc and gas welding, hydraulics and vehicle body work to enhance our trainees' practical capabilities. During the training program, trainees will take part in a three-month work placement with the centre's partnered companies, these companies include the Coca Cola Company, Hamar Water Development Company, Dalsan Water and many more.",
-        image: "/images/student1.jpg", // You'll need to provide appropriate images
+        image: student1,
         studyMode: "Online",
         author: {
             name: "Author 1",
-            image: "author1.jpg"
         },
         requirements: "Requirements for course 1",
         courseLeader: "Leader 1"
@@ -51,11 +61,10 @@ export const courses = [
         ],
         details:
             "Year One, you will cover the fundamentals of electrical engineering, building construction, workshop technology and welding alongside mathematics, physics and English. Year Two, you will tailor your training program to fit your interests, you will learn to analyse and optimise on, off hybrid systems, and advanced topics such as electric machining, and residential and commercial installation that broaden and deepen your skills. During the training program, trainees will take part in a three-month work placement with the centre's partnered companies, these companies include Blue Sky Energy, Mogadishu Power, BECO, Target Group and many more. This course is accredited by the Ministry of Education, Culture and Higher Education, Ministry of Labour Social Affairs and Somali Chamber of Commerce Industry and it is the first step towards employment.",
-        image: "/images/electrical-installation.jpg",
+        image: electricalInstallation,
         studyMode: "Offline",
         author: {
             name: "Author 2",
-            image: "author2.jpg"
         },
         requirements: "Requirements for course 2",
         courseLeader: {
@@ -85,11 +94,10 @@ export const courses = [
         ],
         details:
             "Like all our other courses, trainees will cover the fundamentals of Civil Engineering, Building Construction, Electricity, Workshop Technology and Welding alongside Mathematics, Physics and English in their first year. When trainees enter their second year, they'll begin to focus on learning material sciences to support block laying, tile and stone setting, and advanced topics such as interior decoration. Towards the end of the training program, trainees will take part in a three-month work placement with the centre's partnered companies, these companies include Jazeera Construction, Buruj Construction, Kulmiye Construction, Banadir Region Administration and many more.",
-        image: "/images/masonry-tiling.jpg",
+        image: masonryTiling,
         studyMode: "Online",
         author: {
             name: "Author 3",
-            image: "author3.jpg"
         },
         requirements: "Requirements for course 3",
         courseLeader: {
@@ -116,11 +124,10 @@ export const courses = [
         ],
         details:
             "With Tailoring being one of our short courses, trainees will undergo practical intensive training, covering basic skills like treading a needle to producing ready-to-wear garments. This is an eight-month course. Trainees will receive direct training from our team at Hayle Barise at HBTDC for a total of six months, upon the completion of on-site training – trainees will receive a two-month internship placement at a local business to allow them to receive on-the-job training.",
-        image: "/images/tailoring.jpg",
+        image: tailoring,
         studyMode: "Offline",
         author: {
             name: "Author 4",
-            image: "author4.jpg"
         },
         requirements: "Requirements for course 4",
         courseLeader: "Leader 4"
@@ -136,11 +143,10 @@ export const courses = [
         modules: [],
         details:
             "This course provides hands-on training in various aspects of hospitality and catering, preparing students for diverse roles in the industry.",
-        image: "/images/hospitality-catering.jpg",
+        image: hospitalityCatering,
         studyMode: "Online",
         author: {
             name: "Author 5",
-            image: "author5.jpg"
         },
         requirements: "Requirements for course 5",
         courseLeader: "Leader 5"
@@ -156,11 +162,10 @@ export const courses = [
         modules: [],
         details:
             "This course covers both hardware and software aspects of mobile and computer repair, equipping students with in-demand technical skills.",
-        image: "/images/mobile-computer-repair.png",
+        image: mobileComputerRepair,
         studyMode: "Offline",
         author: {
             name: "Author 6",
-            image: "author6.jpg"
         },
         requirements: "Requirements for course 6",
         courseLeader: "Leader 6"
@@ -176,14 +181,12 @@ export const courses = [
         modules: [],
         details:
             "This course provides training in modern surveying methods and technologies, preparing students for careers in construction, civil engineering, and land management.",
-        image: "/images/surveying.jpg",
+        image: surveying,
         studyMode: "Online",
         author: {
             name: "Author 7",
-            image: "author7.jpg"
         },
         requirements: "Requirements for course 7",
         courseLeader: "Leader 7"
     },
-]
-
+];

@@ -1,33 +1,66 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import type { Course } from "../types/course";
-import { CourseCard } from "./course-card";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Course } from "../types/course";
 import { Button } from "@/components/ui/button";
+import {
+  CalendarDays,
+  Clock,
+  GraduationCap,
+  Timer,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { CourseModal } from "./course-model";
 
-interface CoursesSliderProps {
+interface CourseSliderProps {
   courses: Course[];
 }
 
-export function CoursesSlider({ courses }: CoursesSliderProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
+function SampleNextArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`${className} before:content-[''] z-10`}
+      style={{ ...style, display: "block", right: "10px" }}
+      onClick={onClick}
+    >
+      <ChevronRight className="w-8 h-8 text-white" />
+    </div>
+  );
+}
 
-  const slidesPerView = isSmallScreen ? 1 : 3;
-  const maxIndex = Math.max(0, courses.length - slidesPerView);
+function SamplePrevArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`${className} before:content-[''] z-10`}
+      style={{ ...style, display: "block", left: "10px" }}
+      onClick={onClick}
+    >
+      <ChevronLeft className="w-8 h-8 text-white" />
+    </div>
+  );
+}
 
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, maxIndex));
-  }, [maxIndex]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
-  }, []);
+export function CourseSlider({ courses }: CourseSliderProps) {
+  const [slidesToShow, setSlidesToShow] = useState(3);
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768);
+      if (window.innerWidth < 640) {
+        setSlidesToShow(1);
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(3);
+      }
     };
 
     handleResize();
@@ -35,85 +68,175 @@ export function CoursesSlider({ courses }: CoursesSliderProps) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (currentIndex < maxIndex) {
-        nextSlide();
-      }
-    }, 5000); // Auto-slide every 5 seconds
-    return () => clearInterval(interval);
-  }, [currentIndex, maxIndex, nextSlide]);
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: slidesToShow,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 5000,
+    autoplaySpeed: 0,
+    cssEase: "linear",
+    pauseOnHover: true,
+    arrows: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
+  const duplicatedCourses = [...courses, ...courses];
+
+  const handleReadMore = (course: Course) => {
+    setSelectedCourse(course);
+    setIsModalOpen(true);
+  };
 
   return (
-    <section className="bg-[#4c75ae] py-12">
+    <section className="w-full bg-[#4c75ae] py-16 md:py-24 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="mb-10 text-center text-white">
-          <h2 className="mb-3 text-4xl font-bold">Courses</h2>
-          <p className="text-lg">
-            Shaping the future through innovation at{" "}
-            <span className="font-medium">
-              Hayle Barise Technical Development Center
-            </span>
-          </p>
-        </div>
-
-        <div className="max-w-[1200px] mx-auto relative">
-          <div className="overflow-hidden mx-12">
-            <div
-              className="flex transition-transform duration-500 ease-in-out gap-6"
-              style={{
-                transform: `translateX(-${
-                  currentIndex * (100 / slidesPerView)
-                }%)`,
-                width: `${(courses.length * 100) / slidesPerView}%`,
-              }}
-            >
-              {courses.map((course) => (
-                <div
-                  key={course.id}
-                  className={`w-full ${isSmallScreen ? "flex-shrink-0" : ""}`}
-                  style={{ flex: `0 0 ${100 / slidesPerView}%` }}
-                >
-                  <CourseCard course={course} />
+        <h2 className="mb-12 text-center text-3xl font-bold text-white md:text-4xl">
+          Our Courses
+        </h2>
+        <div className="relative">
+          <Slider {...settings} className="courses-slider">
+            {duplicatedCourses.map((course, index) => (
+              <div key={`${course.id}-${index}`} className="px-2 h-full">
+                <div className="group relative flex flex-col bg-white rounded-lg overflow-hidden shadow-lg h-full">
+                  <div className="relative h-48">
+                    <Image
+                      src={course.image || "/placeholder.svg"}
+                      alt={course.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-xl font-bold mb-4 text-gray-900 line-clamp-2">
+                      {course.title}
+                    </h3>
+                    <div className="space-y-4 mb-6 flex-grow">
+                      <CourseInfoItem
+                        icon={CalendarDays}
+                        label="START DATE"
+                        value={course.startDate}
+                      />
+                      <CourseInfoItem
+                        icon={Timer}
+                        label="DURATION"
+                        value={course.duration}
+                      />
+                      <CourseInfoItem
+                        icon={GraduationCap}
+                        label="STUDY MODE"
+                        value={course.program}
+                      />
+                      <CourseInfoItem
+                        icon={Clock}
+                        label="WEEKLY STUDY"
+                        value={course.weeklyStudy}
+                      />
+                    </div>
+                    <Button
+                      variant="outline"
+                      className="w-full mt-auto"
+                      onClick={() => handleReadMore(course)}
+                    >
+                      Read More
+                    </Button>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <Button
-            variant="outline"
-            size="icon"
-            className="absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg transition-opacity hover:bg-gray-100 opacity-100"
-            onClick={prevSlide}
-            disabled={currentIndex === 0}
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </Button>
-
-          <Button
-            variant="outline"
-            size="icon"
-            className="absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg transition-opacity hover:bg-gray-100 opacity-100"
-            onClick={nextSlide}
-            disabled={currentIndex === maxIndex}
-          >
-            <ChevronRight className="h-6 w-6" />
-          </Button>
-
-          <div className="flex justify-center items-center gap-2 mt-8">
-            {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  currentIndex === idx ? "w-8 bg-white" : "w-2 bg-gray-300"
-                }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
+              </div>
             ))}
-          </div>
+          </Slider>
         </div>
       </div>
+      {selectedCourse && (
+        <CourseModal
+          course={selectedCourse}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
+      <style jsx global>{`
+        .courses-slider .slick-track {
+          display: flex !important;
+        }
+        .courses-slider .slick-slide {
+          height: inherit !important;
+        }
+        .courses-slider .slick-slide > div {
+          height: 100%;
+        }
+        .courses-slider .slick-prev,
+        .courses-slider .slick-next {
+          width: 40px;
+          height: 40px;
+          background-color: rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          z-index: 1;
+          transition: background-color 0.3s ease;
+        }
+        .courses-slider .slick-prev:hover,
+        .courses-slider .slick-next:hover {
+          background-color: rgba(255, 255, 255, 0.5);
+        }
+        .courses-slider .slick-prev {
+          left: -50px;
+        }
+        .courses-slider .slick-next {
+          right: -50px;
+        }
+        @media (max-width: 1024px) {
+          .courses-slider .slick-prev {
+            left: -30px;
+          }
+          .courses-slider .slick-next {
+            right: -30px;
+          }
+        }
+        @media (max-width: 640px) {
+          .courses-slider .slick-prev {
+            left: -20px;
+          }
+          .courses-slider .slick-next {
+            right: -20px;
+          }
+        }
+      `}</style>
     </section>
+  );
+}
+
+interface CourseInfoItemProps {
+  icon: React.ElementType;
+  label: string;
+  value: string;
+}
+
+function CourseInfoItem({ icon: Icon, label, value }: CourseInfoItemProps) {
+  return (
+    <div className="flex items-center gap-3">
+      <Icon className="h-5 w-5 text-emerald-500 flex-shrink-0" />
+      <div>
+        <p className="text-sm font-medium text-gray-500">{label}</p>
+        <p className="text-sm text-gray-900 truncate">{value}</p>
+      </div>
+    </div>
   );
 }

@@ -5,7 +5,7 @@ import Footer from "./components/footer";
 import IndustryStandards from "./components/industry-standards";
 import EngineeringHighlights from "./components/tech-highlits";
 import { courses } from "./data/courses";
-import { CoursesSlider } from "./components/responsive-courses-section";
+import { CourseSlider } from "./components/responsive-courses-section";
 import PartnersSection from "./components/parteners-section";
 import VideoSlider from "./components/video-slider";
 
@@ -17,7 +17,7 @@ export default function Home() {
       <FeaturesGrid />
       <EngineeringHighlights />
       <PartnersSection />
-      <CoursesSlider courses={courses} />
+      <CourseSlider courses={courses} />
       <VideoSlider />
       <NewsletterForm />
       <Footer />

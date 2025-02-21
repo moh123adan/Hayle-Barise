@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import type { Course } from "../types/course";
 import { CoursesGrid } from "./course-grid";
-import { CoursesSlider } from "./courses-slider";
+import { CourseSlider } from "./courses-slider";
 
 interface ResponsiveCoursesProps {
   courses: Course[];
@@ -35,12 +35,11 @@ export function ResponsiveCourses({ courses }: ResponsiveCoursesProps) {
       </div>
 
       {isLargeScreen ? (
-        <CoursesSlider courses={courses} />
+        <CourseSlider courses={courses} />
       ) : (
         <CoursesGrid courses={courses} />
       )}
     </section>
   );
 }
-export { CoursesSlider };
-
+export { CourseSlider };

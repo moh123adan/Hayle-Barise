@@ -5,17 +5,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useImageSlider, type ImageSlide } from "../hooks/useImageSlider";
 
-// Import images
-import student1 from "../../public/images/student1.jpg";
-import student2 from "../../public/images/student2.jpg";
-import student3 from "../../public/images/student3.jpg";
-import student4 from "../../public/images/student4.jpg";
-
+// Use string paths for public images instead of static imports
 const images: ImageSlide[] = [
-  { src: student1, alt: "Students at school" },
-  { src: student4, alt: "Classroom" },
-  { src: student2, alt: "School library" },
-  { src: student3, alt: "School playground" },
+  {
+    src: "/images/student1.jpg",
+    alt: "Students at school",
+  },
+  {
+    src: "/images/student4.jpg",
+    alt: "Classroom",
+  },
+  {
+    src: "/images/student2.jpg",
+    alt: "School library",
+  },
+  {
+    src: "/images/student3.jpg",
+    alt: "School playground",
+  },
 ];
 
 export default function Hero() {
